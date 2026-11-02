@@ -1,12 +1,32 @@
-# React + Vite
+# Pranay Salunkhe Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React and Vite portfolio site for Pranay Salunkhe.
 
-Currently, two official plugins are available:
+## Local development
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```bash
+npm ci
+npm run dev
+```
 
-## Expanding the ESLint configuration
+The project targets Node 22. Node 20.19+ is also supported by the manifest.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Production build
+
+```bash
+npm run lint
+npm run build
+npm run preview
+```
+
+Vercel should use:
+
+- Build command: `npm run build`
+- Output directory: `dist`
+- Node.js version: `22.x`
+
+The `vercel.json` rewrite keeps BrowserRouter routes working on refresh.
+
+## Contact form
+
+Set `VITE_CONTACT_API_URL` in the deployment environment to the HTTPS URL of the contact API. If it is not set, the form posts to `/api/contact`.

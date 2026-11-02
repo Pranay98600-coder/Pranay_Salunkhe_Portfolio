@@ -94,13 +94,15 @@ const validationSchema = Yup.object({
   message: Yup.string().required('Message is required'),
 });
 
+const contactApiUrl = import.meta.env.VITE_CONTACT_API_URL || '/api/contact';
+
 function Contact() {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(null);
 
   const handleSubmit = async (values, { resetForm, setSubmitting }) => {
     try {
-      const response = await fetch('http://localhost:8080/api/contact', { // Update to deployed backend URL later
+      const response = await fetch(contactApiUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(values),
